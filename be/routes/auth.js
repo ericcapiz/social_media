@@ -22,7 +22,7 @@ router.post("/register",async (req,res) =>{
         const user = await newUser.save();
         res.status(200).json(user)
     } catch (error) {
-        console.log("can not create user",error)
+      res.status(500).json("create user err", error)
     }
 })
 
@@ -33,11 +33,11 @@ router.post("/login", async (req,res) => {
         !user && res.status(404).json("User Not Found");
 
         const validPassword = await bcrypt.compare(req.body.password, user.password);
-        !validPassword && res.status(400).json("Wrong Pasword");
+        !validPassword && res.status(400).json("Invalid Credentials");
 
         res.status(200).json(user)
     } catch (error) {
-        console.log("login error", error)
+        res.status(500).json("login err", error)
     }
 })
 
