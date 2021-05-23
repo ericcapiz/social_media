@@ -1,10 +1,9 @@
+import Topbar from "../../topbar/Topbar"
 
 
 const Home = () => {
     return (
-        <div>
-           Home Page 
-        </div>
+        <Topbar />
     )
 }
 
