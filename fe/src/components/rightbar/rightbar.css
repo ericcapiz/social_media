@@ -36,7 +36,11 @@
   }
 
 
-
+.rightbarInfoTitle{
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
   
   .rightbarTitle{
     font-size: 18px;
@@ -80,4 +84,10 @@
     height: 100px;
     object-fit: cover;
     border-radius: 5px;
+  }
+
+  .rightbarFollowingName{
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
   }
