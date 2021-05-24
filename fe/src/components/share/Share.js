@@ -22,7 +22,7 @@ const Share = () => {
                         </div>
                         <div className="shareOption">
                             <Room htmlColor="green" className="shareIcon" />
-                            <span className='shareOptionText'>Tag Location</span>
+                            <span className='shareOptionText'>Location</span>
                         </div>
                         <div className="shareOption">
                             <EmojiEmotions htmlColor="goldenrod" className="shareIcon" />
