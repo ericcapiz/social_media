@@ -1,10 +1,12 @@
-import Profile from "./components/pages/profile/Profile";
+import Home from './components/pages/home/Home';
+
+
 
 
 function App() {
   return (
     <div >
-      <Profile />
+      <Home />
     </div>
   );
 }
