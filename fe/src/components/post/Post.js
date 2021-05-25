@@ -8,6 +8,8 @@ const Post = ({post}) => {
     const [like, setLike] = useState(post.like);
     const [islike, setIsLike] = useState(false);
 
+    const PF=process.env.REACT_APP_PUBLIC_URL;
+
     const userName = Users.filter((user) => user.id === post.userId)[0].username;
     const userImg = Users.filter((user) => user.id === post.userId)[0].profilePicture;
 
@@ -21,7 +23,7 @@ const Post = ({post}) => {
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <img src={userImg} alt="userImg" className="postProfileImg" />
+                        <img src={PF+userImg} alt="userImg" className="postProfileImg" />
                         <span className="postUsername">{userName}</span>
                         <span className="postDate">{post.date}</span>
                     </div>
@@ -31,7 +33,7 @@ const Post = ({post}) => {
                 </div>
                 <div className="postCenter">
                     <span className="postText">{post?.desc}</span>
-                    <img src={post.photo} alt="postImg" className="postImg" />
+                    <img src={PF+post.photo} alt="postImg" className="postImg" />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">

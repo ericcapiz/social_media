@@ -14,6 +14,7 @@ import {
 import CloseFriends from '../closeFriends/CloseFriends';
 
 const Sidebar = () => {
+
     return (
         <div className="sidebar">
             <div className="sidebarWrapper">
