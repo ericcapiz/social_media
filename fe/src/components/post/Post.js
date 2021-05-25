@@ -9,7 +9,7 @@ const Post = ({post}) => {
 
     const [like, setLike] = useState(post.likes.length);
     const [islike, setIsLike] = useState(false);
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({});
 
     const PF=process.env.REACT_APP_PUBLIC_URL;
 
