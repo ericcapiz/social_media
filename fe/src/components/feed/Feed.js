@@ -9,7 +9,7 @@ const Feed = () => {
 
     useEffect(() =>{
         const fetchPosts = async () =>{
-            const res = await axios.get('60ad5651e7da504378b02ccd');
+            const res = await axios.get("posts/timeline/60a99d774d874d59a8fb15d2");
             console.log(res)
         };
         fetchPosts();
