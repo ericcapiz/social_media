@@ -11,9 +11,9 @@ const Rightbar = ({user}) => {
     const PF=process.env.REACT_APP_PUBLIC_URL;
     const [friends,setFriends] = useState([])
     const { user: currentUser, dispatch } = useContext(AuthContext);
-    const [followed, setFollowed] = useState(
-      currentUser.followings.includes(user?.id)
-    );
+    const [followed, setFollowed] = useState(currentUser.followings.includes(user?.id));
+
+    
   
     useEffect(() => {
       const getFriends = async () => {
