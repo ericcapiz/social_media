@@ -1,8 +1,13 @@
+import { useContext } from 'react';
 import {Link} from 'react-router-dom';
+import {AuthContext} from '../../context/AuthContext';
 import {Search, Person, Chat, Notifications} from '@material-ui/icons';
 import "./topbar.css"
 
 const Topbar = () => {
+    const {user} = useContext(AuthContext)
+    const PF = process.env.REACT_APP_PUBLIC_URL;
+
     return (
         <div className="topbarContainer">
             <div className="topbarLeft">
@@ -35,7 +40,9 @@ const Topbar = () => {
                         <span className="topbarIconBadge">1</span>
                     </div>
                 </div>
-                <img src="/assets/person/me.jpg" alt="userImg" className="topbarImg" />
+                <Link to={`/profile/${user.username}`}>
+                    <img src={user.profilePicture ? PF+user.profilePicture : PF+"person/noAvatar.png"} alt="userImg" className="topbarImg" />
+                </Link>
             </div>
         </div>
     )
