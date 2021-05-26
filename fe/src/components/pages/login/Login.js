@@ -1,34 +1,69 @@
+import {useRef, useContext} from 'react';
+import {Link} from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthContext';
+import {loginCall} from '../../apiCalls';
+import { CircularProgress } from "@material-ui/core";
 import './login.css';
-import {useRef} from 'react';
 
-const Login = () => {
-
-    //stop re-rendering page
+export default function Login() {
     const email = useRef();
     const password = useRef();
-
+    const { isFetching, dispatch } = useContext(AuthContext);
+  
     const handleClick = (e) => {
-        e.prevent.default();
-    }
+      e.preventDefault();
+      loginCall(
+        { email: email.current.value, password: password.current.value },
+        dispatch
+      );
+    };
+  
     return (
-        <div className="login">
-            <div className="loginWrapper">
-                <div className="loginLeft">
-                    <h3 className="loginLogo">Social-Devs</h3>
-                    <span className="loginDesc">Connect with friends and other devs around the world on Social-Devs.</span>
-                </div>
-                <div className="loginRight">
-                    <form className="loginBox" onSubmit={handleClick} >
-                        <input required ref={email} type="email" placeholder="Email" className="loginInput" />
-                        <input required minLength='6' ref={password} type="password" placeholder="Password" className="loginInput" />
-                        <button className="loginButton">Log-In</button>
-                        <span className="loginForgot">Forgot Password?</span>
-                        <button className="loginRegisterButton">Register New Account</button>
-                    </form>
-                </div>
-            </div>
+      <div className="login">
+        <div className="loginWrapper">
+          <div className="loginLeft">
+            <h3 className="loginLogo">Social-Devs</h3>
+            <span className="loginDesc">
+                Connect with friends and other devs around the world on Social-Devs.
+            </span>
+          </div>
+          <div className="loginRight">
+            <form className="loginBox" onSubmit={handleClick}>
+              <input
+                placeholder="Email"
+                type="email"
+                required
+                className="loginInput"
+                ref={email}
+              />
+              <input
+                placeholder="Password"
+                type="password"
+                required
+                minLength="6"
+                className="loginInput"
+                ref={password}
+              />
+              <button className="loginButton" type="submit" disabled={isFetching}>
+                {isFetching ? (
+                  <CircularProgress color="white" size="20px" />
+                ) : (
+                  "Log In"
+                )}
+              </button>
+              <span className="loginForgot">Forgot Password?</span>
+              <Link  style={{marginLeft:'100px'}} to="/register">
+              <button className="loginRegisterButton">
+                {isFetching ? (
+                  <CircularProgress color="white" size="20px" />
+                ) : (
+                  "Create a New Account"
+                )}
+              </button>
+              </Link>
+            </form>
+          </div>
         </div>
-    )
-}
-
-export default Login
+      </div>
+    );
+  }

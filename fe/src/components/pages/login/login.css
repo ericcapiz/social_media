@@ -34,12 +34,12 @@
   
   .loginBox{
       height: 300px;
-      padding: 20px;
+      padding: 10px;
       background-color: white;
       border-radius: 10px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-between\;
   }
   
   .loginInput{
@@ -48,6 +48,7 @@
       border: 1px solid gray;
       font-size: 18px;
       padding-left: 20px;
+
   }
   
   .loginInput:focus{
@@ -63,7 +64,14 @@
       font-size: 20px;
       font-weight: 500;
       cursor: pointer;
+      outline: none;
   }
+
+  .loginButton:disabled{
+    cursor: not-allowed;
+  }
+
+
   
   .loginForgot{
       text-align: center;
